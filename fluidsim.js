@@ -109,14 +109,9 @@ function draw() {
     let cy = .5*canvasHeight/SCALE;
     sq.addDensity(cx, cy, 500);
     let n = map(noise(t), 0, 1, -1, 1);
-    // if(n < .5) n += .3;
-    // console.log(n);
     let angle = TWO_PI * n;
-    console.log(n)
     let v = p5.Vector.fromAngle(angle);
     v.mult(6);
-    // let amtX = map(noise(t), 0, 1, -1, 1);
-    // let amtY = map(noise(t+1000), 0, 1, -1, 1);
     t += 0.01;
     sq.addVelocity(cx, cy, v.x, v.y);
 
