@@ -85,7 +85,7 @@ class FluidSquare {
     fadeD() {
         for(let i = 0; i < this.density.length; i++) {
             let d = this.density[i];
-            this.density[i] = constrain(d-0.05, 0, 255);
+            this.density[i] = constrain(d-0.08, 0, 255);
         }
     }
 }
