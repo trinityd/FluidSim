@@ -4,7 +4,7 @@ let canvasWidth = N * SCALE;
 let canvasHeight = N * SCALE;
 let bgColor = 'black';
 let origDiff = 0;
-let origVisc = 0.000001;
+let origVisc = 0.00001;
 let dt = 0.01;
 let iter = 4;
 let sq;
@@ -85,7 +85,7 @@ class FluidSquare {
     fadeD() {
         for(let i = 0; i < this.density.length; i++) {
             let d = this.density[i];
-            this.density[i] = constrain(d-0.1, 0, 255);
+            this.density[i] = constrain(d-0.05, 0, 255);
         }
     }
 }
@@ -108,8 +108,7 @@ function draw() {
     let cx = .5*canvasWidth/SCALE;
     let cy = .5*canvasHeight/SCALE;
     sq.addDensity(cx, cy, 500);
-    let n = map(noise(t), 0, 1, -1, 1);
-    let angle = TWO_PI * n;
+    let angle = noise(t) * TWO_PI * 2;
     let v = p5.Vector.fromAngle(angle);
     v.mult(6);
     t += 0.01;
